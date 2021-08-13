@@ -1,0 +1,48 @@
+@import "./functions";
+
+:root {
+  --SitePrimaryColor: hsl(240, 4%, 11%);
+  --SiteSecondaryColor: hsl(120, 71%, 57%);
+  --SiteTertiaryColor: hsl(0, 0%, 93%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--SitePrimaryColor);
+}
+
+.GlobalNav {
+  position: absolute;
+  width: 100%;
+  height: 70px;
+  top: 0;
+  background-color: var(--SiteTertiaryColor);
+}
+
+.IndexPage {
+  top: 70px;
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 70px);
+  background-color: transparent;
+
+  @include alignCenter;
+  align-items: stretch;
+  flex-direction: row;
+
+  .IndexLeftBox {
+    background-color: lightblue;
+  }
+  .IndexRightBox {
+    background-color: slategrey;
+  }
+}
