@@ -1,9 +1,9 @@
 import React from "react";
 
-const IndexRightBox: React.FC = () => {
+const HomeRightBox: React.FC = () => {
   return (
-    <div className="IndexRightBox">
-      <h1>Index Right Box</h1>
+    <div className="HomeRightBox">
+      <h1>Home Right Box</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor pariatur
         maxime, libero nemo quis, praesentium atque cumque quasi, in deleniti
@@ -14,4 +14,4 @@ const IndexRightBox: React.FC = () => {
   );
 };
 
-export default IndexRightBox;
+export default HomeRightBox;
