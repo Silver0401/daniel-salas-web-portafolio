@@ -1,24 +1,7 @@
-import React, { useRef, Suspense } from "react";
-import { useGLTF, OrbitControls } from "@react-three/drei";
+import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 
-const Model = (props: any) => {
-  const group = useRef();
-  const { nodes, materials } = useGLTF("/models/bitcoinModel/scene.gltf");
-  return (
-    <>
-      <group ref={group} {...props} dispose={null}>
-        <group rotation={[-Math.PI / 2, 0, 0]}>
-          {/* @ts-ignore */}
-          <mesh geometry={nodes.mesh_0.geometry} material={materials.None} />
-        </group>
-      </group>
-      <OrbitControls />
-    </>
-  );
-};
-
-useGLTF.preload("/models/bitcoinModel/scene.gltf");
+import BitcoinModel from "../models/bitcoin";
 
 const HomeLeftBox: React.FC = () => {
   return (
@@ -40,7 +23,7 @@ const HomeLeftBox: React.FC = () => {
             shadow-camera-far={50}
           />
           <Suspense fallback={null}>
-            <Model />
+            <BitcoinModel />
           </Suspense>
         </Canvas>
       </div>
