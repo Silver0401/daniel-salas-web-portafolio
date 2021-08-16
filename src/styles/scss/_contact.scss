@@ -1,0 +1,8 @@
+.ContactPage {
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  top: 70px;
+  height: calc(100% - 70px);
+  background-color: var(--SitePrimaryColor);
+}

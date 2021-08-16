@@ -6,17 +6,10 @@ import BitcoinModel from "../models/bitcoin";
 const HomeLeftBox: React.FC = () => {
   return (
     <div className="HomeLeftBox">
-      <h1>Home Left Box</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia, culpa
-        est. Explicabo voluptatum, repellat sed debitis laudantium eum! Facilis
-        distinctio aliquid modi aliquam repellat laudantium dignissimos cum
-        asperiores placeat reprehenderit.
-      </p>
       <div className="ModelBox">
-        <Canvas id="Canvas" shadows>
+        <Canvas id="Canvas" shadows camera={{ position: [0, 0, 60], fov: 100 }}>
           <ambientLight intensity={0.5} />
-          <pointLight position={[100, 500, 500]} intensity={2} />
+          <pointLight position={[250, 250, 250]} intensity={2} />
           <directionalLight
             castShadow
             position={[0, 0, 0]}
