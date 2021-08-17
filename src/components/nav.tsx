@@ -11,10 +11,18 @@ const NavBar: React.FC = () => {
       className="GlobalNav"
       style={
         contextData.currentPage === "Home"
-          ? { backgroundColor: "transparent" }
+          ? {
+              backgroundColor: "transparent",
+              transition: "background-color 250ms",
+            }
           : contextData.currentPage === "Contact"
-          ? { backgroundColor: "#1b1b1d" }
-          : { backgroundColor: "#8d8d8e" }
+          ? { backgroundColor: "#1b1b1d", transition: "background-color 250ms" }
+          : contextData.currentPage === "About"
+          ? { backgroundColor: "#8d8d8e", transition: "background-color 250ms" }
+          : {
+              backgroundColor: "transparent",
+              transition: "background-color 250ms",
+            }
       }
     >
       <div className="logo">

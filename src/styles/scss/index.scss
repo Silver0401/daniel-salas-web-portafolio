@@ -22,148 +22,20 @@ html {
   height: 100vh;
   position: relative;
   overflow: hidden;
-  background-color: var(--SitePrimaryColor);
-}
-
-#bgWaves {
-  position: absolute;
-  width: 70%;
-  height: 50%;
-  top: 150px;
-  right: 18%;
-  transform: rotateZ(90deg) rotateY(180deg);
-  opacity: 0.5;
-}
-
-.bgStuff {
-  z-index: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 50%;
-  background: linear-gradient(
-    to right,
-    var(--SiteTertiaryColor) 90%,
-    transparent 0%
-  );
-  display: grid;
-  grid-template-columns: repeat(1fr, 6);
-  grid-template-rows: repeat(1fr, 10);
-  grid-template-areas:
-    "T T T R R R"
-    "T T T R R R"
-    "T T T R R R"
-    "T T T R R R"
-    ". . . . . ."
-    ". . . . . ."
-    "B B B L L L"
-    "B B B L L L"
-    "B B B L L L"
-    "B B B L L L";
-
-  .middleCircle {
-    top: 50%;
-    left: 50%;
-    width: 450px;
-    height: 450px;
-    background-color: var(--SitePrimaryColor);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-  }
-
-  .tlbox,
-  .trbox,
-  .brbox,
-  .blbox {
-    position: relative;
-    grid-area: T;
-    @include alignCenter();
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-
-    > * {
-      position: relative;
-      width: 100%;
-      height: 33%;
-      overflow: visible;
-      @include alignCenter();
-      justify-content: flex-start;
-
-      #line1,
-      #line2 {
-        position: relative;
-        width: 5px;
-        height: 100%;
-        background-color: var(--SiteSecondaryColor);
-      }
-
-      #line1 {
-        right: 26px;
-        background: linear-gradient(
-          to bottom,
-          transparent,
-          var(--SiteSecondaryColor)
-        );
-      }
-
-      #line2 {
-        top: -10px;
-        transform: rotateZ(-30deg);
-      }
-
-      #bullet {
-        position: relative;
-        top: -20px;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        left: 26.5px;
-        background-color: var(--SiteSecondaryColor);
-        box-shadow: 0px 0px 10px var(--SiteSecondaryColor);
-      }
-    }
-  }
-
-  .trbox,
-  .blbox {
-    grid-area: R;
-
-    > * {
-      #line1 {
-        left: 26px;
-      }
-      #line2 {
-        transform: rotateZ(30deg);
-      }
-      #bullet {
-        left: -27.5px;
-      }
-    }
-  }
-
-  .brbox {
-    grid-area: L;
-    transform: rotateZ(180deg);
-  }
-  .blbox {
-    transform: rotateZ(180deg);
-    grid-area: B;
-  }
+  background-color: var(--SitePrimaryColor) !important;
 }
 
 .GlobalNav {
-  position: absolute;
+  position: fixed;
   z-index: 5;
   width: 100%;
   height: 70px;
   top: 0;
-  background-color: transparent;
+  // background-color: var(--SitePrimaryColor);
   @include alignCenter();
   flex-direction: row;
   justify-content: space-between;
+  background-color: transparent;
 
   .logo {
     position: relative;
@@ -172,6 +44,7 @@ html {
     height: 140px;
     border-radius: 50%;
     background-color: var(--SitePrimaryColor);
+    border: 2px solid var(--SiteTertiaryColor);
 
     @include alignCenter();
     svg,
@@ -187,6 +60,8 @@ html {
     position: relative;
     width: 45%;
     height: 100%;
+    background-color: transparent;
+    // background-color: var(--SitePrimaryColor);
 
     @include alignCenter();
     flex-direction: row;
@@ -218,7 +93,7 @@ html {
         background-color: var(--SiteSecondaryColor);
         position: absolute;
         transition: height 300ms;
-        transition-delay: 300ms;
+        transition-delay: 500ms;
       }
 
       &::before {
@@ -231,26 +106,26 @@ html {
         content: "Inicio";
         bottom: -20px;
         left: -2px;
-        width: 100%;
+        width: 106%;
         height: 20px;
         background-color: var(--SiteSecondaryColor);
         position: absolute;
         transform: rotateX(-90deg);
-        transition: transform 300ms;
+        transition: transform 500ms;
         transform-origin: top;
         perspective: 50px;
       }
 
       &:hover {
         &::after {
-          transition: height 300ms;
+          transition: height 200ms;
           height: 100%;
         }
 
         &::before {
           transform: rotateX(0deg);
-          transition: transform 500ms;
-          transition-delay: 300ms;
+          transition: transform 200ms;
+          transition-delay: 200ms;
         }
       }
     }
@@ -274,7 +149,8 @@ html {
   position: absolute;
   width: 100%;
   height: calc(100% - 70px);
-  background-color: transparent;
+  background-color: var(--SitePrimaryColor);
+  overflow: visible;
 
   @include alignCenter;
   flex-direction: row;
@@ -282,7 +158,8 @@ html {
   .HomeLeftBox {
     position: relative;
     width: 50%;
-    height: 100%;
+    height: 100vh;
+    margin-bottom: 70px;
     @include alignCenter;
     flex-direction: column;
     justify-content: space-around;
@@ -291,11 +168,150 @@ html {
       position: relative;
       width: 100%;
       height: 100%;
+      z-index: 1;
 
       #Canvas {
         position: relative;
         width: 100%;
         height: 100%;
+      }
+    }
+
+    .bgContainer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+
+      #bgWaves {
+        position: absolute;
+        width: 100vh;
+        height: auto;
+        top: 35%;
+        right: -55%;
+        // right: 18%;
+        transform: rotateZ(90deg);
+        transform: rotateZ(90deg) rotateY(180deg);
+        opacity: 0.5;
+      }
+
+      .bgStuff {
+        z-index: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(
+          to right,
+          var(--SiteTertiaryColor) 90%,
+          transparent 0%
+        );
+        display: grid;
+        grid-template-columns: repeat(1fr, 6);
+        grid-template-rows: repeat(1fr, 10);
+        grid-template-areas:
+          "T T T R R R"
+          "T T T R R R"
+          "T T T R R R"
+          "T T T R R R"
+          ". . . . . ."
+          ". . . . . ."
+          "B B B L L L"
+          "B B B L L L"
+          "B B B L L L"
+          "B B B L L L";
+
+        .middleCircle {
+          top: 50%;
+          left: 50%;
+          width: 450px;
+          height: 450px;
+          background-color: var(--SitePrimaryColor);
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+          position: absolute;
+        }
+
+        .tlbox,
+        .trbox,
+        .brbox,
+        .blbox {
+          position: relative;
+          grid-area: T;
+          @include alignCenter();
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+
+          > * {
+            position: relative;
+            width: 100%;
+            height: 33%;
+            overflow: visible;
+            @include alignCenter();
+            justify-content: flex-start;
+
+            #line1,
+            #line2 {
+              position: relative;
+              width: 5px;
+              height: 100%;
+              background-color: var(--SiteSecondaryColor);
+            }
+
+            #line1 {
+              right: 26px;
+              background: linear-gradient(
+                to bottom,
+                transparent,
+                var(--SiteSecondaryColor)
+              );
+            }
+
+            #line2 {
+              top: -10px;
+              transform: rotateZ(-30deg);
+            }
+
+            #bullet {
+              position: relative;
+              top: -20px;
+              width: 10px;
+              height: 10px;
+              border-radius: 50%;
+              left: 26.5px;
+              background-color: var(--SiteSecondaryColor);
+              box-shadow: 0px 0px 10px var(--SiteSecondaryColor);
+            }
+          }
+        }
+
+        .trbox,
+        .blbox {
+          grid-area: R;
+
+          > * {
+            #line1 {
+              left: 26px;
+            }
+            #line2 {
+              transform: rotateZ(30deg);
+            }
+            #bullet {
+              left: -27.5px;
+            }
+          }
+        }
+
+        .brbox {
+          grid-area: L;
+          transform: rotateZ(180deg);
+        }
+        .blbox {
+          transform: rotateZ(180deg);
+          grid-area: B;
+        }
       }
     }
   }
@@ -304,6 +320,7 @@ html {
     width: 50%;
     height: 100%;
     @include alignCenter();
+    background-color: transparent;
 
     .TitlesBox,
     .ButtonsBox {

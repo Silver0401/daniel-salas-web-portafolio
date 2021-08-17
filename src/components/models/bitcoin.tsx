@@ -17,7 +17,7 @@ export default function BitcoinModel(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF("/models/scene.gltf") as GLTFResult;
   return (
     <>
-      <group ref={group} {...props} dispose={null} position={[3, -30, 15]}>
+      <group ref={group} {...props} dispose={null} position={[3.5, -36.5, 15]}>
         <group rotation={[-Math.PI / 2, 0, 0]}>
           <group rotation={[Math.PI / 2, 0, 0]}>
             <group position={[-3.49, 36.23, -11.29]}>
