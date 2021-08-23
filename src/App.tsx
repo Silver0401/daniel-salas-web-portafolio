@@ -21,7 +21,7 @@ const App: React.FC = () => {
       <AnimatePresence exitBeforeEnter>
         <Switch location={Location} key={Location.pathname}>
           <Route key="HomePage" exact path="/" component={HomePage} />
-          <Route key="MedsPage" exact path="/" component={MedsPage} />
+          <Route key="MedsPage" exact path="/MedsDB" component={MedsPage} />
         </Switch>
       </AnimatePresence>
     </div>

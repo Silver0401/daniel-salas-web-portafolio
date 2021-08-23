@@ -1,4 +1,6 @@
 import React from "react";
+import { Button } from "@chakra-ui/button";
+import { useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const HomeRightBox: React.FC = () => {
@@ -13,6 +15,7 @@ const HomeRightBox: React.FC = () => {
       opacity: 0,
     },
   };
+  const History = useHistory();
 
   return (
     <motion.div
@@ -23,13 +26,21 @@ const HomeRightBox: React.FC = () => {
       exit={"ExitPosition"}
     >
       <div className="TitlesBox">
-        <h2>Bienvenido! Mi Nombre es</h2>
-        <h1>Daniel Salas</h1>
-        <h3>Tu experto y asesor en áreas de inversiones y finanzas</h3>
+        <h2>Bienvenido a </h2>
+        <h1>Pedia-Farm</h1>
+        <h3>
+          El Catálogo de Medicamentos Pediátricos utilizados en Insuficiencia
+          Cardiaca.
+        </h3>
       </div>
       <div className="ButtonsBox">
-        <button>Mi CV 📔</button>
-        <button>Contrátame 🚀</button>
+        <Button
+          size="lg"
+          colorScheme="twitter"
+          onClick={() => History.push("/MedsDB")}
+        >
+          Ir al Catálogo Pediátrico 💊
+        </Button>
       </div>
     </motion.div>
   );
