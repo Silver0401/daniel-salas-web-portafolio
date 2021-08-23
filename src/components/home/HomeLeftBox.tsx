@@ -1,5 +1,8 @@
 import React, { Suspense } from "react";
+import { Canvas } from "@react-three/fiber";
 import { motion } from "framer-motion";
+
+import BitcoinModel from "../models/bitcoin";
 
 const HomeLeftBox: React.FC = () => {
   const MotionTransitionVariants1 = {
@@ -40,6 +43,33 @@ const HomeLeftBox: React.FC = () => {
 
   return (
     <div className="HomeLeftBox">
+      <motion.div
+        className="ModelBox"
+        variants={MotionTransitionVariants2}
+        initial={"initPosition"}
+        animate={"DesiredPosition"}
+        exit={"ExitPosition"}
+      >
+        <Canvas id="Canvas" shadows camera={{ position: [0, 0, 70], fov: 100 }}>
+          <ambientLight color={"yellow"} intensity={0.5} />
+          <pointLight
+            castShadow
+            position={[100, 100, 400]}
+            intensity={1}
+            color={"yellow"}
+          />
+          <directionalLight
+            castShadow
+            intensity={10}
+            position={[0, 200, 0]}
+            color={"yellow"}
+          />
+          <Suspense fallback={null}>
+            <BitcoinModel />
+          </Suspense>
+        </Canvas>
+      </motion.div>
+
       <motion.div
         className="bgContainer"
         variants={MotionTransitionVariants1}

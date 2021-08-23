@@ -4,7 +4,8 @@ import { Context } from "./data/context";
 import { AnimatePresence } from "framer-motion";
 
 import HomePage from "./pages/home";
-import MedsPage from "./pages/meds";
+import AboutPage from "./pages/about";
+import ContactPage from "./pages/contact";
 import GlobalNav from "./components/nav";
 
 const App: React.FC = () => {
@@ -21,7 +22,13 @@ const App: React.FC = () => {
       <AnimatePresence exitBeforeEnter>
         <Switch location={Location} key={Location.pathname}>
           <Route key="HomePage" exact path="/" component={HomePage} />
-          <Route key="MedsPage" exact path="/" component={MedsPage} />
+          <Route key="AboutPage" exact path="/about" component={AboutPage} />
+          <Route
+            key="ContactPage"
+            exact
+            path="/contact"
+            component={ContactPage}
+          />
         </Switch>
       </AnimatePresence>
     </div>

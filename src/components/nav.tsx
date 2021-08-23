@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.svg";
+import logo from "./../assets/logo.svg";
 import { Context } from "../data/context";
 
 const NavBar: React.FC = () => {
